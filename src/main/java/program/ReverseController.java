@@ -6,19 +6,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class ReverseController{
-    private static final String template = "The word is: %s!";
+public class ReverseController extends ReverserAndCounter{
+    private static final String template = "The word is: ";
     private static final String template2 = "The reverse is: %s!";
     private final AtomicLong counter = new AtomicLong();
-    String reverse = "";
 
     @RequestMapping("/reverse")
-    public Reverse reverse(@RequestParam(value="word", defaultValue="blank") String word){
-        for(int i = word.length() - 1; i >= 0; i--)
-        {
-            reverse = reverse + word.charAt(i);
-        }
-        return new Reverse(counter.incrementAndGet(),
-                String.format(template, word));
+    public String reverse(@RequestParam(value="word", defaultValue="blank") String word){
+        /*return new Reverse(counter.incrementAndGet(),
+                String.format(template, reverser(word)));*/
+        return template + reverser(word) + " which is " + wordCounter(word) + " numbers long!";
     }
+
 }
