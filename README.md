@@ -3,7 +3,8 @@
 #To run:
 
 #Step 1
-Set your maven to the right path.
+Set your maven to the right path.\
+For me, this is set PATH="c:\program files\apache-maven-3.6.2\bin";%PATH%
 
 #Step 2
 Navigate to the corresponding folder.

@@ -1,4 +1,5 @@
-Program\Application.class
-Program\GreeterController.class
-Program\Greeter.class
-Program\HelloWorld.class
+program\Application.class
+program\GreeterService.class
+program\Greeter.class
+program\GreeterController.class
+program\HelloWorld.class
