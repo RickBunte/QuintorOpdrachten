@@ -7,6 +7,7 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -19,6 +20,7 @@ public class GreeterService {
     @Autowired
     GreeterService() {}
 
+    @Cacheable
     @PostConstruct
     private void fillAccounts(){
         accounts.add(new Greeter(1, "INGB1", "2000", "Simon Bells"));
@@ -28,16 +30,26 @@ public class GreeterService {
         accounts.add(new Greeter(5, "INGB5", "5", "John Doe"));
     }
 
-    @Cacheable("greeter")
+    @Cacheable
     public List<Greeter> findAll(){
         simulateSlowService();
         return this.accounts;
     }
 
+    @Cacheable
     public List<Greeter> findAccountByHolder(String holder){
         simulateSlowService();
-        List<Greeter> listOfAccountsOfHolder = accounts.stream().filter(c -> c.getHolder() == holder).collect(Collectors.toList());
-        return listOfAccountsOfHolder;
+        if(holder.contains("%20")){
+            System.out.println("Space found!");
+        }
+        if(accounts.contains(holder)){
+            List<Greeter> listOfAccountsOfHolder = accounts.stream().filter(c -> c.getHolder() == holder).collect(Collectors.toList());
+            return listOfAccountsOfHolder;
+        }
+        else{
+            System.out.println("There's no such account holder!");
+            return null;
+        }
     }
 
 
