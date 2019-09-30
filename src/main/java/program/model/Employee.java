@@ -5,46 +5,41 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-enum Gender{
-    MALE,
-    FEMALE
-}
-
 @Entity
-public class Customer{
+public class Employee{
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GenerateValue(strategy=GenerationType.AUTO)
     private long id;
     private String firstName;
     private String lastName;
-    private Gender gender;
+    private String position;
     @Embedded
     private Account account;
 
-    protected Customer(){}
+    protected Employee(){}
 
-    public Customer(long id, String firstName, String lastName, Gender gender, Account account){
+    public Employee employee(long id, String firstName, String lastName, String position, Account account){
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.gender = gender;
+        this.position = position;
         this.account = account;
     }
 
-    public long getId(){
+    public long getId() {
         return id;
     }
 
-    public String getFirstName(){
+    public String getFirstName() {
         return firstName;
     }
 
-    public String getLastName(){
+    public String getLastName() {
         return lastName;
     }
 
-    public Gender getGender(){
-        return gender;
+    public long getPosition() {
+        return position;
     }
 
     public Account getAccount() {
