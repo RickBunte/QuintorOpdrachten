@@ -23,11 +23,11 @@ public class GreeterService {
     @Cacheable
     @PostConstruct
     private void fillAccounts(){
-        accounts.add(new Greeter(1, "INGB1", "2000", "Simon Bells"));
-        accounts.add(new Greeter(2, "INGB2", "4000", "Simon Bells"));
-        accounts.add(new Greeter(3, "INGB3", "15", "Rick Bunte"));
-        accounts.add(new Greeter(4, "INGB4", "50000", "George McDuck"));
-        accounts.add(new Greeter(5, "INGB5", "5", "John Doe"));
+        accounts.add(new Greeter(1, "INGB1", "2000", "Simon"));
+        accounts.add(new Greeter(2, "INGB2", "4000", "Simon"));
+        accounts.add(new Greeter(3, "INGB3", "15", "Rick"));
+        accounts.add(new Greeter(4, "INGB4", "50000", "George"));
+        accounts.add(new Greeter(5, "INGB5", "5", "John"));
     }
 
     @Cacheable
@@ -39,24 +39,25 @@ public class GreeterService {
     @Cacheable
     public List<Greeter> findAccountByHolder(String holder){
         simulateSlowService();
-        if(holder.contains("%20")){
+        List<Greeter> listOfAccountsOfHolder = accounts.stream().filter(c -> c.getHolder() == holder).collect(Collectors.toList());
+        return listOfAccountsOfHolder;
+        /*if(holder.contains("%20")){
             System.out.println("Space found!");
         }
         if(accounts.contains(holder)){
-            List<Greeter> listOfAccountsOfHolder = accounts.stream().filter(c -> c.getHolder() == holder).collect(Collectors.toList());
-            return listOfAccountsOfHolder;
+
         }
         else{
             System.out.println("There's no such account holder!");
             return null;
-        }
+        }*/
     }
 
 
     public void simulateSlowService(){
         try{
             System.out.println("Going to sleep for 5 seconds to simulate backend.");
-            Thread.sleep(1000*5);
+            Thread.sleep(1000*3);
         }
         catch(InterruptedException e){
             e.printStackTrace();
