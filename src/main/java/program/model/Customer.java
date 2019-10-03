@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Embedded;
 
 enum Gender{
     MALE,
@@ -17,18 +18,25 @@ public class Customer{
     private long id;
     private String firstName;
     private String lastName;
-    private Gender gender;
-    @Embedded
-    private Account account;
+    //private Gender gender;
+    //@Embedded
+    //private Account account;
 
     protected Customer(){}
 
-    public Customer(long id, String firstName, String lastName, Gender gender, Account account){
+    public Customer(long id, String firstName, String lastName/*, Gender gender, Account account*/){
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.gender = gender;
-        this.account = account;
+        //this.gender = gender;
+        //this.account = account;
+    }
+
+    @Override
+    public String toString() {
+        return String.format(
+                "Customer[id=%d, firstName='%s', lastName='%s']",
+                id, firstName, lastName);
     }
 
     public long getId(){
@@ -43,11 +51,11 @@ public class Customer{
         return lastName;
     }
 
-    public Gender getGender(){
+    /*public Gender getGender(){
         return gender;
     }
 
     public Account getAccount() {
         return account;
-    }
+    }*/
 }

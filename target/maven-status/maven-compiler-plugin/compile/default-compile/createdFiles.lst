@@ -1,2 +1,6 @@
+program\Application.class
+program\model\Account.class
 program\model\Customer.class
+program\model\Employee.class
+program\service\CustomerRepository.class
 program\model\Gender.class

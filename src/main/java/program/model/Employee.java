@@ -4,11 +4,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Embedded;
 
 @Entity
 public class Employee{
     @Id
-    @GenerateValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private long id;
     private String firstName;
     private String lastName;
@@ -18,7 +19,7 @@ public class Employee{
 
     protected Employee(){}
 
-    public Employee employee(long id, String firstName, String lastName, String position, Account account){
+    public Employee(long id, String firstName, String lastName, String position, Account account){
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -38,7 +39,7 @@ public class Employee{
         return lastName;
     }
 
-    public long getPosition() {
+    public String getPosition() {
         return position;
     }
 
