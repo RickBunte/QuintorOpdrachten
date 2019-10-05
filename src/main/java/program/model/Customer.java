@@ -1,10 +1,6 @@
 package program.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Embedded;
+import javax.persistence.*;
 
 enum Gender{
     MALE,
@@ -16,11 +12,14 @@ public class Customer{
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private long id;
+    @Column(name="firstName", nullable = false)
     private String firstName;
+    @Column(name="lastName", nullable = false)
     private String lastName;
+
     //private Gender gender;
     //@Embedded
-    //private Account account;
+    //private Account accountId;
 
     protected Customer(){}
 

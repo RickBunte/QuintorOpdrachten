@@ -7,8 +7,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import program.model.Customer;
+import program.model.Employee;
 
 import program.service.CustomerRepository;
+import program.service.EmployeeRepository;
 
 @SpringBootApplication
 public class Application {
