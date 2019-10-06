@@ -15,20 +15,15 @@ import program.service.EmployeeRepository;
 @SpringBootApplication
 public class Application {
 
-    private final Logger log = LoggerFactory.getLogger(Application.class);
+    //private final Logger log = LoggerFactory.getLogger(Application.class);
 
     public static void main(String[] args){
         SpringApplication.run(Application.class, args);
     }
 
-    @Bean
+    /*@Bean
     public CommandLineRunner demo (CustomerRepository repository){
         return (args) -> {
-            repository.save(new Customer(1, "Rick", "Bunte"));
-            repository.save(new Customer(2, "Danny", "Hoogwerf"));
-            repository.save(new Customer(3, "Owen", "Enkeld"));
-            repository.save(new Customer(4, "Els", "Strand"));
-            repository.save(new Customer(5, "Bob", "Strand"));
 
             //Fetch all customers
             log.info("Customers found with findAll()");
@@ -54,6 +49,6 @@ public class Application {
             log.info("");
 
         };
-    }
+    }*/
 
 }

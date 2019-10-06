@@ -8,53 +8,53 @@ enum Gender{
 }
 
 @Entity
+@Table(name="CUSTOMER", schema = "RECORDS")
 public class Customer{
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private long id;
-    @Column(name="firstName", nullable = false)
-    private String firstName;
-    @Column(name="lastName", nullable = false)
-    private String lastName;
+    @Column(name="Gender", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "Account_Id", nullable = false)
+    private Account accountId;
+    @Embedded
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    private Address address;
 
-    //private Gender gender;
-    //@Embedded
-    //private Account accountId;
-
-    protected Customer(){}
-
-    public Customer(long id, String firstName, String lastName/*, Gender gender, Account account*/){
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        //this.gender = gender;
-        //this.account = account;
-    }
-
-    @Override
+    /*@Override
     public String toString() {
         return String.format(
-                "Customer[id=%d, firstName='%s', lastName='%s']",
-                id, firstName, lastName);
-    }
+                "Customer[id=%d, gender=%d, accountid=%d]",
+                id, gender, accountId);
+    }*/
 
     public long getId(){
         return id;
     }
 
-    public String getFirstName(){
-        return firstName;
+    public void setId(long id){
+        this.id = id;
     }
 
-    public String getLastName(){
-        return lastName;
-    }
-
-    /*public Gender getGender(){
+    public Gender getGender(){
         return gender;
     }
 
-    public Account getAccount() {
-        return account;
-    }*/
+    public void setGender(Gender gender){
+        this.gender = gender;
+    }
+
+    public Account getAccountId() {
+        return accountId;
+    }
+
+    public void setAccountId(Account accountId){
+        this.accountId = accountId;
+    }
+
+    public Address getAddress(){
+        return this.address;
+    }
 }

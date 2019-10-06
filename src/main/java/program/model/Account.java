@@ -1,31 +1,48 @@
 package program.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Embeddable;
+import org.springframework.data.annotation.CreatedDate;
+
+import javax.persistence.*;
+import java.util.Date;
 
 @Entity
-@Embeddable
+@Table(name="ACCOUNT", schema = "RECORDS")
 public class Account{
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private long id;
+    @Column(name="firstName", nullable = false)
+    private String firstName;
+    @Column(name="lastName", nullable = false)
+    private String lastName;
+    @Column(name="username", nullable = false)
     private String username;
+    @Column(name="password", nullable = false)
     private String password;
-    private String address;
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name="Created at", nullable = false)
+    @CreatedDate
+    private Date createdAt;
 
 
-    public Account(long id, String username, String password, String address){
+    public Account(long id, String firstName, String lastName, String username, String password){
         this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.username = username;
         this.password = password;
-        this.address = address;
     }
 
     public long getId(){
         return id;
+    }
+
+    public String getFirstName(){
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
     }
 
     public String getUsername(){
@@ -36,8 +53,12 @@ public class Account{
         return password;
     }
 
-    public String getAddress() {
-        return address;
+
+    public Date getCreatedAt() {
+        return createdAt;
     }
 
+    public void setCreatedAt(Date createdAt){
+        this.createdAt = createdAt;
+    }
 }

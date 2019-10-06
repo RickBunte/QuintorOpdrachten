@@ -1,42 +1,29 @@
 package program.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Embedded;
+import javax.persistence.*;
 
 @Entity
+@Table(name="EMPLOYEE", schema = "RECORDS")
 public class Employee{
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private long id;
-    private String firstName;
-    private String lastName;
+    @Column(name="position", nullable = false)
     private String position;
-    @Embedded
-    private Account account;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "Account_Id", nullable = false)
+    private Account accountId;
 
     protected Employee(){}
 
-    public Employee(long id, String firstName, String lastName, String position, Account account){
+    public Employee(long id, String position, Account accountId){
         this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
         this.position = position;
-        this.account = account;
+        this.accountId = accountId;
     }
 
     public long getId() {
         return id;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
     }
 
     public String getPosition() {
@@ -44,6 +31,6 @@ public class Employee{
     }
 
     public Account getAccount() {
-        return account;
+        return accountId;
     }
 }
