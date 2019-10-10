@@ -32,7 +32,7 @@ class DefaultAccountService implements accountService {
     private accountModel getAccountInfo(final Long id){
         accountModel accountModel = new accountModel();
         accountModel.setId(id);
-        accountModel.setAccountNumber(1);
+        accountModel.setAccountNumber("00000000");
         accountModel.setBalance(500);
         accountModel.setIban(accountModel.generateIban());
         return accountModel;

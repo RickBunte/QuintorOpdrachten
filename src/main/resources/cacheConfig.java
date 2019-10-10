@@ -11,17 +11,17 @@ import java.util.concurrent.TimeUnit;
 public class CaffeineCacheConfig {
 
     public CacheManager cacheManager() {
-        CaffeineCacheManager cacheManager = new CaffeineCacheManager("customer");
+        CaffeineCacheManager cacheManager = new CaffeineCacheManager("accounts");
         cacheManager.setCaffeine(caffeineCacheBuilder());
         return cacheManager;
     }
 
     Caffeine< Object, Object > caffeineCacheBuilder() {
         return Caffeine.newBuilder()
-   .initialCapacity(100)
-   .maximumSize(500)
-   .expireAfterAccess(10, TimeUnit.MINUTES)
-   .weakKeys()
-   .recordStats();
+                .initialCapacity(100)
+                .maximumSize(500)
+                .expireAfterAccess(10, TimeUnit.MINUTES)
+                .weakKeys()
+                .recordStats();
     }
 }

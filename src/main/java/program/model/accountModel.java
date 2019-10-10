@@ -11,7 +11,7 @@ public class accountModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private long accountNumber;
+    private String accountNumber;
     private long balance;
     private String iban;
 
@@ -31,7 +31,7 @@ public class accountModel {
         return id;
     }
 
-    public long getAccountNumber() {
+    public String getAccountNumber() {
         return accountNumber;
     }
 
@@ -47,7 +47,7 @@ public class accountModel {
         this.id = id;
     }
 
-    public void setAccountNumber(long accountNumber) {
+    public void setAccountNumber(String accountNumber) {
         this.accountNumber = accountNumber;
     }
 

@@ -10,12 +10,6 @@ import org.springframework.context.annotation.Bean;
 public class Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
-
-        /*accountView view = new accountView();
-        account program.model = new account();
-        accountController controller = new accountController(program.model, view);
-
-        view.setVisible(true);*/
     }
 
 
