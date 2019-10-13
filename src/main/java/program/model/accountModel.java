@@ -22,10 +22,6 @@ public class accountModel {
         return ibanMark[markIndex];
     }
 
-    public String getGeneratedIban(){
-        return generateIban();
-    }
-
     //GETTERS AND SETTERS
     public long getId() {
         return id;

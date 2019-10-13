@@ -38,8 +38,8 @@ class DefaultAccountService implements accountService {
         return accountModel;
     }
 
-    public List<accountModel> getAccountList(int page, int size){
+    /*public List<accountModel> getAccountList(int page, int size){
         PageRequest pageReq = PageRequest.of(page, size);
-        Page<accountModel> accounts = accountRepository.
-    }
+        Page<accountModel> accounts = accountRepository.findById();
+    }*/
 }
