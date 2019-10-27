@@ -1,0 +1,90 @@
+body{
+    font-family: Arial;
+    margin: 0;
+}
+header{
+    background-color: rgb(53, 58, 64);
+}
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(53, 58, 64);
+    color: white;
+}
+li{
+    float: left;
+}
+li h2{
+    display: block;
+    background-color: rgb(53, 58, 64);
+    text-align: center;
+    padding: 5px;
+    font-size: 20px;
+}
+li a{
+    display: block;
+    background-color: rgb(53, 58, 64);
+    text-align: center;
+    padding: 16px;
+    color: white;
+    text-decoration: none;
+}
+li a img{
+    display: inline-block;
+}
+li a:hover{
+    background-color: rgb(97, 98, 100);;
+}
+#loginbox{
+    border-radius: 5px;
+    color: rgb(66, 27, 27);
+    background-color: rgb(255, 205, 205);
+    padding: 20px;
+}
+section{
+    text-align: center;
+}
+
+table{
+    width: 20%;
+}
+
+#td1{
+    border-width: 1px;
+    border-style: solid;
+    border-color: grey;
+    border-radius: 5px;
+    background-color: rgb(220, 220, 220);
+    text-align: left;
+    padding: 8px;
+}
+#td2{
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: grey;
+    border-radius: 5px;
+}
+input[type=text], input[type=password]{
+    padding: 8px;
+    border-color: grey;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    margin: 4px 8px;
+    width: 80%;
+}
+
+input[type=submit]{
+    padding: 16px 4px;
+    margin: 4px 8px;
+    background-color: blue;
+    border-radius: 5px;
+    border-width: 1px;
+    color: white;
+    text-align: center;
+    width: 80%;
+    font-size: 20px;
+}

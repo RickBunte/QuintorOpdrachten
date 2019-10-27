@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="public/styles/account.css">
+        <title>Aanmelden</title>
+    </head>
+    <body>
+        <header>
+                <ul>
+                    <li><h2>Quintor</h2></li>
+                    <li><a href="/"><img src="public/images/home.jpeg" /> Home</a></li>
+                    <li><a href="/account"><img src="public/images/user.jpeg" /> Klantgegevens</a></li>
+                    <li><a href="#overzicht"><img src="public/images/menu.jpeg"> Rekening Overzicht</a></li>
+                    <li><a href="#overboekingen"><img src="public/images/bank.jpeg" /> Overboekingen</a>  </li>
+                    <li  style="float:right"><a href="/login" id="logout">Log gebruiker uit</a></li>
+                </ul>
+        </header>
+        <section>
+                <table>
+                    <tr>
+                        <td id = "td1">
+                            Gegevens voor
+                        </td>
+                    </tr>
+                    <tr>
+                        <td id = "td2">
+                            <h1>
+                                Klantgegevens
+                            </h1>
+                            <form method="POST" action="account">
+                                Voorletters     <input type="text" name="initials" required><br />
+                                Achternaam      <input type="text" name="lastname" required><br />
+                                Straat          <input type="text" name="street" required><br />
+                                Huisnummer      <input type="text" name="housenumber" required><br />
+                                Plaatsn         <input type="text" name="place" required><br />
+                                Postcode        <input type="text" name="zip" required><br />
+                                BSN             <input type="text" name="bsn" required><br />
+                                Geboortedatum   <input type="date" name="birthdate" required><br />
+                                Tel.nr          <input type="tel" name="phone" required><br />
+                                Email           <input type="email" name="email" required><br />
+                                <input type="submit" value="Opslaan"><br />
+                            </form>
+                        </td>
+                    </tr>
+                </table>
+        </section>   
+    </body>
+</html>

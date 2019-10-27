@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="public/styles/login.css">
+        <title>Aanmelden</title>
+    </head>
+    <body>
+        <header>
+                <ul>
+                    <li><h2>Quintor</h2></li>
+                    <li><a href="/"><img src="public/images/home.jpeg" /> Home</a></li>
+                    <li><a href="/login"><img src="public/images/bank.jpeg" /> Aanmelden</a>  </li>
+                </ul>
+        </header>
+        <section>
+                <h1>Quintor Bank</h1>
+                <table align="center">
+                    <tr>
+                        <td id = "td1">
+                            Meld je aan
+                        </td>
+                    </tr>
+                    <tr>
+                        <td id = "td2">
+                            <form method="POST" action="login">
+                                <input type="text" name="username" required><br />
+                                <input type="password" name="password" required><br />
+                                <input type="submit" value="Aanmelden"><br />
+                            </form>
+                        </td>
+                    </tr>
+                </table>
+        </section>   
+    </body>
+</html>
