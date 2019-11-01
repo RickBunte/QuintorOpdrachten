@@ -1,5 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Hero } from '../heroes';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+
+import { HeroService }  from '../hero.service';
 
 @Component({
   selector: 'app-hero-detail',
@@ -11,9 +15,51 @@ export class HeroDetailComponent implements OnInit {
 
   @Input() hero: Hero;
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private heroService: HeroService,
+    private location: Location
+  ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.getHero();
   }
+  
+  getHero(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.heroService.getHero(id)
+      .subscribe(hero => this.hero = hero);
+  }
+
+  goBack(): void {
+    this.location.back();
+  }
+
+  
+  save(): void {
+    this.heroService.updateHero(this.hero)
+      .subscribe(() => this.goBack());
+  }
+
+  /** PUT: update the hero on the server */
+updateHero (hero: Hero): Observable<any> {
+  return this.http.put(this.heroesUrl, hero, this.httpOptions).pipe(
+    tap(_ => this.log(`updated hero id=${hero.id}`)),
+    catchError(this.handleError<any>('updateHero'))
+  );
+}
+
+httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
+
+add(name: string): void {
+  name = name.trim();
+  if (!name) { return; }
+  this.heroService.addHero({ name } as Hero)
+    .subscribe(hero => {
+      this.heroes.push(hero);
+    });
+}
 
 }
