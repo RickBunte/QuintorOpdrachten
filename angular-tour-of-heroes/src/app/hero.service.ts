@@ -12,7 +12,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 export class HeroService {
 
 
-  /** GET heroes from the server */
+/** GET heroes from the server */
 /** GET hero by id. Will 404 if id not found */
 getHero(id: number): Observable<Hero> {
   const url = `${this.heroesUrl}/${id}`;
